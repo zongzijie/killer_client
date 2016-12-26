@@ -1,0 +1,47 @@
+<view class="app">
+<template name="zcAlbum">
+  <view class="element album {{data.html_mode}}" style="{{data.style}}">
+    <view class="album-container background-ele clearfix" style="{{data.ul_style}} ">
+      <view wx:for="{{data.players}}"
+            class="section album-pic "
+            style="width:178.7109375rpx;margin-right:7.03125rpx;margin-bottom:7.03125rpx;margin-left:auto;"
+            data-event-params="{\"playerid\":\"{{index}}\"}"
+            catchtap="palyerClickEvent">
+        <view class="section" style="">  
+        <picker id="picker_{{index}}" mode="selector" bindchange="bindPickerChange" value="{{item.cardIndex}}" range="{{item.cards}}" name="area">  
+            <view class="picker" style="height:178.125rpx;border-radius:50%;margin-left:auto;"> 
+            <image src="{{item.src}}" id="{{item.id}}" style="height:178.125rpx;border-radius:50%;margin-left:auto;" mode="aspectFit">
+        </image>
+        <text class="title">{{index+1}}</text> 
+            </view>  
+        </picker>  
+    </view> 
+         
+      </view>
+    </view>
+  </view>
+</template>
+
+<view class="ele-container">
+  <template is="zcAlbum" data="{{data:album1}}"></template>
+</view>
+  <template name="zcButton">
+  <label class="element button" style="{{data.style}}" data-event-params="{{data.eventParams}}" catchtap="{{data.eventHandler}}">
+      {{data.content}}
+  </label>
+</template>
+<!-- <view class="ele-container">
+  <template is="zcButton" data="{{data:button2}}"></template>
+</view> -->
+<view class="ele-container">
+  <template is="zcButton" data="{{data:btn_reset}}"></template>
+</view>
+<!-- <view class="ele-container">
+  <template is="zcButton" data="{{data:button4}}"></template>
+</view>
+<view class="ele-container">
+  <template is="zcButton" data="{{data:button5}}"></template>
+</view> -->
+   
+
+</view>

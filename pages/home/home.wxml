@@ -1,0 +1,29 @@
+<view class="app">
+<template name="zcButton">
+  <label class="element button" style="{{data.style}}" data-event-params="{{data.eventParams}}" catchtap="{{data.eventHandler}}">
+      {{data.content}}
+  </label>
+</template>
+<view class="ele-container">
+  <template is="zcButton" data="{{data:button1}}"></template>
+</view>
+<template name="zcAlbum">
+  <view class="element album {{data.html_mode}}" style="{{data.style}}">
+    <view class="album-container background-ele clearfix" style="{{data.ul_style}} ">
+      <view wx:for="{{data.li}}"
+            class="{{item.li_class}}"
+            style="{{item.li_style}}"
+            data-event-params="{{item.eventParams}}"
+            catchtap="{{item.eventHandler}}">
+        <image src="{{item.pic}}" style="{{item.img_style}}" mode="aspectFit"></image>
+        <text class="title">{{item.title}}</text>
+      </view>
+    </view>
+  </view>
+</template>
+
+<view class="ele-container">
+    
+  <template is="zcAlbum" data="{{data:album2}}"></template>
+</view>
+</view>
